@@ -1,0 +1,20 @@
+package guia1;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Ejercicio1 {
+	
+	public static void main(String[] args) {
+		System.out.println("kevo");
+		System.out.println(calcularSueldo(15,20));
+	}
+	
+	//Ejercicio 1.a
+	public static int calcularSueldo(int horasTrabajadas, int precioHora) {
+		return horasTrabajadas*precioHora;
+	}
+	
+}
+
+
