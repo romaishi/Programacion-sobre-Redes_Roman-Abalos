@@ -1,8 +1,8 @@
 # 🧠 Trabajo Práctico – Programación sobre Redes
 
 ## 👤 Datos del Alumno
-- **Nombre y Apellido:** Kevin González  
-- **Correo Electrónico:** kevingonzalezr433@gmail.com  
+- **Nombre y Apellido:** Roman Abalos Ishida
+- **Correo Electrónico:** romanabalosishidaet32@gmail.com 
 - **Curso y División:** 6.1C  
 
 ## 👨‍🏫 Docente
