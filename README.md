@@ -1,140 +1,72 @@
-<details><summary>CLICK ME</summary>
-<p>
-    
-#### We can hide anything, even code!
+# 🧠 Trabajo Práctico – Programación sobre Redes
 
-    ```C++
-       Serial.println("Esto es codigo de Arduino");
-    ```
-	
-	```java
-		private String test(int var) {
-		  console.log("notice the blank line before this function?");
-		}
-	```	
-	
+## 👤 Datos del Alumno
+- **Nombre y Apellido:** Kevin González  
+- **Correo Electrónico:** kevingonzalezr433@gmail.com  
+- **Curso y División:** 6.1C  
 
-</details> </p>
+## 👨‍🏫 Docente
+- **Nombre y Apellido:** Gonzalo Nicolás Consorti
 
-The Markdown will be collapsed by default.
-
-![Rendered collapsed](/assets/images/help/writing/collapsed-section-view.png)
-
-After a reader clicks <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-triangle-right" aria-label="The right triange icon" role="img"><path d="M6.427 4.427l3.396 3.396a.25.25 0 010 .354l-3.396 3.396A.25.25 0 016 11.396V4.604a.25.25 0 01.427-.177z"></path></svg>, the details are expanded.
-
-![Rendered open](/assets/images/help/writing/open-collapsed-section.png)
-
-# Leer más
-## Leer más
-### Leer más
-#### Leer más
-##### Leer más
-
-#https://mermaid-js.github.io/mermaid/#/
-
-#https://docs.github.com/es/get-started/writing-on-github/working-with-advanced-formatting
-
-
-# Título del Proyecto
-
-_Acá va un párrafo que describa lo que es el proyecto_
-
-## Comenzando 🚀
-
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
-
-Mira **Deployment** para conocer como desplegar el proyecto.
-
-
-### Pre-requisitos 📋
-
-_Que cosas necesitas para instalar el software y como instalarlas_
-
-```
-Da un ejemplo
-```
-
-### Instalación 🔧
-
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
-
-_Dí cómo será ese paso_
-
-```
-Da un ejemplo
-```
-
-_Y repite_
-
-```
-hasta finalizar
-```
-
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
-
-## Ejecutando las pruebas ⚙️
-
-_Explica como ejecutar las pruebas automatizadas para este sistema_
-
-### Analice las pruebas end-to-end 🔩
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-### Y las pruebas de estilo de codificación ⌨️
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-## Despliegue 📦
-
-_Agrega notas adicionales sobre como hacer deploy_
-
-## Construido con 🛠️
-
-_Menciona las herramientas que utilizaste para crear tu proyecto_
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
-
-## Contribuyendo 🖇️
-
-Por favor lee el [CONTRIBUTING.md](https://gist.github.com/villanuevand/xxxxxx) para detalles de nuestro código de conducta, y el proceso para enviarnos pull requests.
-
-## Wiki 📖
-
-Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](https://github.com/tu/proyecto/wiki)
-
-## Versionado 📌
-
-Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
-
-## Autores ✒️
-
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
-* **Andrés Villanueva** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
-* **Fulanito Detal** - *Documentación* - [fulanitodetal](#fulanito-de-tal)
-
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
-
-## Licencia 📄
-
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
-
-## Expresiones de Gratitud 🎁
-
-* Comenta a otros sobre este proyecto 📢
-* Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
-* Da las gracias públicamente 🤓.
-* etc.
+## 🧾 Materia
+**Programación sobre Redes**  
+Esta materia tiene como objetivo enseñar los fundamentos de la programación aplicada al trabajo en redes de computadoras, combinando conceptos de entrada/salida, estructuras de datos y lógica de resolución de problemas.
 
 ---
-⌨️ con ❤️ por [Villanuevand](https://github.com/Villanuevand) 😊
+
+## 📁 Estructura del Proyecto
+
+
+Contiene todas las clases Java desarrolladas para los ejercicios propuestos en la guía.  
+Cada clase resuelve uno de los enunciados de la consigna utilizando exclusivamente los métodos permitidos según se indica:
+
+- **Entrada:** métodos de la clase `System` o de la clase `Reader`.
+- **Salida:** `PrintStream`.
+
+---
+
+## 📌 Consigna
+
+Desarrollar una serie de ejercicios en Java utilizando exclusivamente:
+
+- Para entrada: `System` o `Reader`.
+- Para salida: `PrintStream`.
+
+### ✅ Ejercicios con System + PrintStream
+
+1. Calcular sueldo bruto: valor de hora × cantidad de horas trabajadas.
+2. Calcular el tercer ángulo de un triángulo dados dos.
+3. Calcular el perímetro de un cuadrado dada su superficie.
+4. Convertir temperatura de Fahrenheit a Centígrados.
+5. Convertir segundos a días, horas, minutos y segundos.
+6. Calcular planes de pago con distintos porcentajes y cuotas:
+   - Plan 1: 10% descuento al contado.
+   - Plan 2: 50% al contado, 2 cuotas, +10% al total.
+   - Plan 3: 25% al contado, 5 cuotas, +15% al total.
+   - Plan 4: 8 cuotas con distribución desigual, +25% al total.
+7. Mostrar mes aproximado de nacimiento a partir del signo zodiacal.
+
+### ✅ Ejercicios con Reader + PrintStream
+
+1. Mostrar tres apellidos ordenados alfabéticamente.
+2. Indicar el menor entre cuatro números reales.
+3. Determinar si un número es par o impar.
+4. Verificar si el mayor entre dos números es divisible por el menor.
+5. Determinar el signo del zodíaco según la fecha de nacimiento.
+6. Comparar apellidos de dos personas según su longitud.
+7. Mostrar la tabla de multiplicar de un número N.
+8. Indicar si un número natural es primo o no.
+
+---
+
+## ❗ Comentarios y Complicaciones
+
+- Al principio, hubo complicaciones ya que no podíamos usar `Reader`, por lo que se desarrolló una clase propia para entrada.
+- También surgieron errores al ejecutar el proyecto en una nueva computadora con IntelliJ IDEA debido a incompatibilidades entre herramientas de desarrollo (previamente se usaba Spring Tools Suite).
+- Estos problemas se resolvieron actualizando el JDK y reconfigurando la estructura del proyecto en IntelliJ.
+
+---
+
+## ✅ Estado del Proyecto
+
+Todos los ejercicios están probados y funcionan correctamente desde la consola, respetando las restricciones de entrada y salida indicadas en la consigna.
