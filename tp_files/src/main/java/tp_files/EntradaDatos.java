@@ -7,7 +7,7 @@ import java.io.PrintStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Ejercicio_1 {
+public class EntradaDatos {
 	PrintStream ps = new PrintStream(System.out);
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	
@@ -15,7 +15,7 @@ public class Ejercicio_1 {
     public static void main(String[] args) { 
     }
 
-    public void IngresarDatosVector() {
+    public int[] IngresarDatosVector() {
         int[] origen1 = new int[5];
         boolean valido = false;
         
@@ -30,14 +30,24 @@ public class Ejercicio_1 {
                 if (contadorCeros(origen1)) {
                     valido = true;
                     System.out.println("Vector aceptado.");
+                    for(int i = 0; i < origen1.length; i++ ) {
+                    	System.out.println(origen1[i]);
+                    	if(i < origen1.length - 1) {
+                    		System.out.print(", ");
+                    	}
+                    }
+                    System.out.println();
+                    
                 } else {
                     System.out.println("Error: debe ingresar al menos 2 ceros. Intente nuevamente.");
                 }
 
             } catch (IOException | NumberFormatException e) {
-                Logger.getLogger(Ejercicio_1.class.getName()).log(Level.WARNING, null, e);
+                Logger.getLogger(EntradaDatos.class.getName()).log(Level.WARNING, null, e);
             }
         }
+        
+        return origen1;
     }
 
     

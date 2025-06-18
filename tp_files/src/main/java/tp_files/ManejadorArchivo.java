@@ -9,13 +9,13 @@ import java.io.PrintStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Files {
+public class ManejadorArchivo {
 	
 	PrintStream ps;
 	File file;
 	File filee;	
 	
-	public Files(String ruta){
+	public ManejadorArchivo(String ruta){
 		ps = new PrintStream(System.out);
 		file = new File(ruta);
 	}
@@ -41,7 +41,7 @@ public class Files {
 			
 
 		} catch (IOException e) {
-			Logger.getLogger(Files.class.getName()).log(Level.WARNING, null, e);
+			Logger.getLogger(ManejadorArchivo.class.getName()).log(Level.WARNING, null, e);
 		} finally {
 			try {
 				if (bw != null)
@@ -49,7 +49,7 @@ public class Files {
 				if (fw != null)
 					fw.close();
 			} catch (IOException e) {
-				Logger.getLogger(Files.class.getName()).log(Level.WARNING, null, e);
+				Logger.getLogger(ManejadorArchivo.class.getName()).log(Level.WARNING, null, e);
 			}
 		}
 
@@ -73,13 +73,13 @@ public class Files {
 			}
 			return texto;
 		} catch (IOException e) {
-			Logger.getLogger(Files.class.getName()).log(Level.WARNING, null, e);
+			Logger.getLogger(ManejadorArchivo.class.getName()).log(Level.WARNING, null, e);
 		} finally {
 			try {
 				if (fr != null)
 					fr.close();
 			} catch (IOException e) {
-				Logger.getLogger(Files.class.getName()).log(Level.WARNING, null, e);
+				Logger.getLogger(ManejadorArchivo.class.getName()).log(Level.WARNING, null, e);
 			}
 		}
 		return null;
