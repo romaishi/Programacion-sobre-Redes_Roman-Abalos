@@ -1,72 +1,78 @@
-# 🧠 Trabajo Práctico – Programación sobre Redes
+# 🧠 Trabajo Práctico – Programación sobre Redes: Flujo de Datos
 
 ## 👤 Datos del Alumno
+
 - **Nombre y Apellido:** Roman Abalos Ishida
-- **Correo Electrónico:** romanabalosishidaet32@gmail.com 
-- **Curso y División:** 6.1C  
+- **Correo Electrónico:** romanabalosishidaet32@gmail.com
+- **Curso y División:** 6.1C
 
 ## 👨‍🏫 Docente
+
 - **Nombre y Apellido:** Gonzalo Nicolás Consorti
 
 ## 🧾 Materia
+
 **Programación sobre Redes**  
-Esta materia tiene como objetivo enseñar los fundamentos de la programación aplicada al trabajo en redes de computadoras, combinando conceptos de entrada/salida, estructuras de datos y lógica de resolución de problemas.
+Este trabajo práctico se centra en el manejo de datos desde diferentes fuentes y destinos, haciendo uso de memoria volátil (vectores) y no volátil (archivos), además del tratamiento de excepciones comunes como `ArithmeticException` y `NullPointerException`.
 
 ---
 
 ## 📁 Estructura del Proyecto
 
+El proyecto está compuesto por 4 clases principales:
 
-Contiene todas las clases Java desarrolladas para los ejercicios propuestos en la guía.  
-Cada clase resuelve uno de los enunciados de la consigna utilizando exclusivamente los métodos permitidos según se indica:
-
-- **Entrada:** métodos de la clase `System` o de la clase `Reader`.
-- **Salida:** `PrintStream`.
+- `Main.java`: punto de entrada, donde se definen vectores y se invocan procesos.
+- `EntradaDatos.java`: permite la carga de datos desde consola usando `Reader`.
+- `ManejadorArchivo.java`: se encarga de leer y escribir archivos de texto.
+- `Procesos.java`: contiene la lógica principal de procesamiento y manejo de errores.
 
 ---
 
 ## 📌 Consigna
 
-Desarrollar una serie de ejercicios en Java utilizando exclusivamente:
+Desarrollar un programa que cumpla con los siguientes puntos:
 
-- Para entrada: `System` o `Reader`.
-- Para salida: `PrintStream`.
+### 1. Entrada y almacenamiento
 
-### ✅ Ejercicios con System + PrintStream
+- Ingresar números desde dos orígenes distintos:
+  - Consola: utilizando `BufferedReader` (sin `Scanner`).
+  - Código fuente: vector hardcodeado en `Main.java`.
+- Los datos deben guardarse en:
+  - Memoria volátil: vector de 5 elementos (mínimo 2 ceros).
+  - Memoria no volátil: archivo de texto (`datos.txt`, un número por línea).
 
-1. Calcular sueldo bruto: valor de hora × cantidad de horas trabajadas.
-2. Calcular el tercer ángulo de un triángulo dados dos.
-3. Calcular el perímetro de un cuadrado dada su superficie.
-4. Convertir temperatura de Fahrenheit a Centígrados.
-5. Convertir segundos a días, horas, minutos y segundos.
-6. Calcular planes de pago con distintos porcentajes y cuotas:
-   - Plan 1: 10% descuento al contado.
-   - Plan 2: 50% al contado, 2 cuotas, +10% al total.
-   - Plan 3: 25% al contado, 5 cuotas, +15% al total.
-   - Plan 4: 8 cuotas con distribución desigual, +25% al total.
-7. Mostrar mes aproximado de nacimiento a partir del signo zodiacal.
+### 2. Procesamiento de vector en memoria
 
-### ✅ Ejercicios con Reader + PrintStream
+- Leer el vector cargado por consola.
+- Dividir cada elemento por el siguiente.
+- Guardar:
+  - Resultados válidos en `resultados.txt`.
+  - Errores (por división por cero o acceso inválido) en `error.txt`.
 
-1. Mostrar tres apellidos ordenados alfabéticamente.
-2. Indicar el menor entre cuatro números reales.
-3. Determinar si un número es par o impar.
-4. Verificar si el mayor entre dos números es divisible por el menor.
-5. Determinar el signo del zodíaco según la fecha de nacimiento.
-6. Comparar apellidos de dos personas según su longitud.
-7. Mostrar la tabla de multiplicar de un número N.
-8. Indicar si un número natural es primo o no.
+### 3. Lectura desde archivo y procesamiento adicional
+
+- Leer el vector guardado en `datos.txt`.
+- Realizar una división de cada elemento entre 3.
+- Repetir este proceso también para el vector en memoria.
+- Guardar nuevamente:
+  - Resultados en `resultados.txt`.
+  - Errores en `error.txt`.
 
 ---
 
 ## ❗ Comentarios y Complicaciones
 
-- Al principio, hubo complicaciones ya que no podíamos usar `Reader`, por lo que se desarrolló una clase propia para entrada.
-- También surgieron errores al ejecutar el proyecto en una nueva computadora con IntelliJ IDEA debido a incompatibilidades entre herramientas de desarrollo (previamente se usaba Spring Tools Suite).
-- Estos problemas se resolvieron actualizando el JDK y reconfigurando la estructura del proyecto en IntelliJ.
+- Se desarrolló una clase de entrada personalizada para cumplir con la restricción de no usar `Scanner`.
+- Se manejaron errores comunes como:
+  - División por cero (`ArithmeticException`)
+  - Índice fuera de rango (`ArrayIndexOutOfBoundsException`)
+  - Valor nulo (`NullPointerException`)
+- El proyecto fue desarrollado inicialmente en Spring Tools Suite y luego migrado a IntelliJ IDEA, lo cual requirió ajustes en la configuración del entorno y del JDK.
 
 ---
 
 ## ✅ Estado del Proyecto
 
-Todos los ejercicios están probados y funcionan correctamente desde la consola, respetando las restricciones de entrada y salida indicadas en la consigna.
+El programa cumple con todos los puntos del enunciado y maneja correctamente los errores.  
+Los resultados y errores se guardan en archivos separados como lo indica la consigna.  
+La entrada y salida de datos respeta los métodos permitidos (`Reader` y `PrintStream`).
