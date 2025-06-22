@@ -1,19 +1,19 @@
 package tp_files;
 
+import java.io.File;
+
 public class Main {
 
-	public static void main(String[] args) {
-		//PrintStream ps = new PrintStream(System.out);
+    public static void main(String[] args) {
+        EntradaDatos entrada = new EntradaDatos();
+        int[] vector = entrada.IngresarDatosVector();
 
-		EntradaDatos ejercicio_1 = new EntradaDatos();
-		ejercicio_1.IngresarDatosVector();
-		
-		/*
-		Files arch = new Files("consorti.txt");
-		int[] array = {1,2,0,0,9};
-		
-		arch.crearFileConBuffer(arch.getFiles(), array);
-		*/
-	}
+        // Guardar vector en archivo
+        ManejadorArchivo archivo = new ManejadorArchivo("datos.txt");
+        archivo.crearFileConBuffer(archivo.getFiles(), vector);
 
+        // Procesar divisiones y generar archivos de salida
+        Procesos proc = new Procesos();
+        proc.procesarVector(vector);
+    }
 }
