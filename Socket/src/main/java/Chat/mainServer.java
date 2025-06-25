@@ -5,6 +5,8 @@ import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import Utils.enumType;
+
 public class mainServer {
 
 	public static void main(String[] args) {

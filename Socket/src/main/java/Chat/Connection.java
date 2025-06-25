@@ -8,12 +8,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class connection {
-
-
-
+public class Connection {
+		
 	private int port = 2006;
-	private String ip = "127.0.0.1";
+	private String ip  = "127.0.0.1";
 	protected String msg = "";
 	
 	protected PrintStream ps;
@@ -23,12 +21,11 @@ public class connection {
 	private InetAddress direction;
 	protected DataOutputStream dosServer, dosClient;
 	
-	
-	public connection( enumType type ) throws UnknownHostException, IOException
+	public Connection( Utils.enumType type ) throws UnknownHostException, IOException
 	{
-		ps = new PrintStream(System.out);
+		ps = new PrintStream( System.out );
 		direction = InetAddress.getByName(ip);
-		
+
 		switch(type)
 		{
 		case SERVER:
@@ -36,10 +33,9 @@ public class connection {
 			sockC = new Socket();
 			break;
 		case CLIENT:
-			sockC = new Socket(direction, port);
-			break;
+			sockC = new Socket(direction,port);
+			break;	
 		}
-		
 	}
 	
 	public int getPort() {
@@ -48,19 +44,20 @@ public class connection {
 	public void setPort(int p) {
 		this.port = p;
 	}
-
+	
 	public String getIp() {
 		return ip;
 	}
 	public void setIp(String i) {
 		this.ip = i;
 	}
-
+	
+	
 	
 }
 
-enum enumType {
-	SERVER,
-	CLIENT
-	
-}
+
+
+
+
+
