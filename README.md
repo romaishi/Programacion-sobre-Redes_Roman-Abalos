@@ -1,72 +1,109 @@
-# 🧠 Trabajo Práctico – Programación sobre Redes
+# 🧠 Trabajo Práctico – Inventario de Productos: Flujo de Datos
 
 ## 👤 Datos del Alumno
-- **Nombre y Apellido:** Roman Abalos Ishida
-- **Correo Electrónico:** romanabalosishidaet32@gmail.com 
-- **Curso y División:** 6.1C  
+
+- **Nombre y Apellido:** Roman Abalos Ishida  
+- **Correo Electrónico:** romanabalosishidaet32@gmail.com  
+- **Curso y División:** 6.1C
 
 ## 👨‍🏫 Docente
+
 - **Nombre y Apellido:** Gonzalo Nicolás Consorti
 
 ## 🧾 Materia
-**Programación sobre Redes**  
-Esta materia tiene como objetivo enseñar los fundamentos de la programación aplicada al trabajo en redes de computadoras, combinando conceptos de entrada/salida, estructuras de datos y lógica de resolución de problemas.
+
+**Programación sobre Redes**
+
+Este trabajo práctico se centra en la gestión de un sistema de inventario a través de entrada de datos por consola, almacenamiento en archivos y operaciones CRUD básicas (Crear, Leer, Actualizar, Eliminar), combinando el uso de memoria volátil y no volátil.
 
 ---
 
 ## 📁 Estructura del Proyecto
 
+El proyecto está organizado en distintas clases y paquetes para promover una arquitectura modular:
 
-Contiene todas las clases Java desarrolladas para los ejercicios propuestos en la guía.  
-Cada clase resuelve uno de los enunciados de la consigna utilizando exclusivamente los métodos permitidos según se indica:
-
-- **Entrada:** métodos de la clase `System` o de la clase `Reader`.
-- **Salida:** `PrintStream`.
+- `Main.java`: punto de entrada, ejecuta el menú principal y redirige las acciones.
+- `Producto.java`: representa el modelo de datos con los atributos: nombre, precio de compra, precio de venta y stock.
+- `InventarioFunciones.java`: contiene la lógica de negocio para agregar, mostrar, editar y eliminar productos.
+- `ArchivoFunciones.java`: gestiona la lectura y escritura de productos en el archivo de texto.
+- `Consola.java`: maneja la entrada de datos desde la consola usando `BufferedReader`, sin `Scanner`.
+- `Colors.java`: define constantes de colores ANSI para una mejor presentación en consola.
 
 ---
 
 ## 📌 Consigna
 
-Desarrollar una serie de ejercicios en Java utilizando exclusivamente:
+Desarrollar un programa que cumpla con los siguientes puntos:
 
-- Para entrada: `System` o `Reader`.
-- Para salida: `PrintStream`.
+### 1. Menú de opciones
 
-### ✅ Ejercicios con System + PrintStream
+Crear un menú infinito en consola con las siguientes opciones:
 
-1. Calcular sueldo bruto: valor de hora × cantidad de horas trabajadas.
-2. Calcular el tercer ángulo de un triángulo dados dos.
-3. Calcular el perímetro de un cuadrado dada su superficie.
-4. Convertir temperatura de Fahrenheit a Centígrados.
-5. Convertir segundos a días, horas, minutos y segundos.
-6. Calcular planes de pago con distintos porcentajes y cuotas:
-   - Plan 1: 10% descuento al contado.
-   - Plan 2: 50% al contado, 2 cuotas, +10% al total.
-   - Plan 3: 25% al contado, 5 cuotas, +15% al total.
-   - Plan 4: 8 cuotas con distribución desigual, +25% al total.
-7. Mostrar mes aproximado de nacimiento a partir del signo zodiacal.
+- Agregar producto  
+- Mostrar inventario  
+- Editar producto  
+- Eliminar producto  
+- Salir  
 
-### ✅ Ejercicios con Reader + PrintStream
+> Todos los mensajes y respuestas deben estar prolijamente presentados, usando colores, tabulaciones y saltos de línea.
 
-1. Mostrar tres apellidos ordenados alfabéticamente.
-2. Indicar el menor entre cuatro números reales.
-3. Determinar si un número es par o impar.
-4. Verificar si el mayor entre dos números es divisible por el menor.
-5. Determinar el signo del zodíaco según la fecha de nacimiento.
-6. Comparar apellidos de dos personas según su longitud.
-7. Mostrar la tabla de multiplicar de un número N.
-8. Indicar si un número natural es primo o no.
+### 2. Entrada de datos y validaciones
+
+- Leer texto desde consola usando `BufferedReader` (sin `Scanner`).
+- Validar si la entrada es:
+  - No numérica  
+  - Número entero  
+  - Número decimal (coma o punto)
+- Convertir los textos numéricos a sus respectivos tipos (`int` o `float`).
+
+### 3. Registro de productos
+
+Solicitar al usuario los siguientes campos:
+
+- Nombre del producto  
+- Precio de compra (`float`)  
+- Precio de venta (`float`)  
+- Stock (`int`)
+
+> Estos datos se almacenan en:
+- **Memoria volátil:** lista de productos.  
+- **Memoria no volátil:** archivo `Inventario.dat` con formato plano (una línea por producto).  
+
+Ejemplo de línea en el archivo:
+
+manzana;50.6;100.7;240
+
+
+
+### 4. Operaciones sobre archivo
+
+Se deben implementar los siguientes métodos:
+
+- Crear archivo si no existe.
+- Leer productos del archivo (`BufferedReader`).
+- Agregar nuevos productos al archivo (`BufferedWriter`, modo append).
+- Mostrar el contenido del archivo en consola de forma ordenada.
+- Eliminar un producto según su índice.
+- Editar un producto existente, solicitando los nuevos datos al usuario.
+- Guardar los cambios sobrescribiendo el archivo original.
 
 ---
 
-## ❗ Comentarios y Complicaciones
+## ⚠️ Consideraciones Técnicas
 
-- Al principio, hubo complicaciones ya que no podíamos usar `Reader`, por lo que se desarrolló una clase propia para entrada.
-- También surgieron errores al ejecutar el proyecto en una nueva computadora con IntelliJ IDEA debido a incompatibilidades entre herramientas de desarrollo (previamente se usaba Spring Tools Suite).
-- Estos problemas se resolvieron actualizando el JDK y reconfigurando la estructura del proyecto en IntelliJ.
+- Se respetó la restricción de no utilizar `Scanner`, y en su lugar se usó `BufferedReader`.
+- Los errores de entrada inválida se manejan con validaciones personalizadas y mensajes en rojo.
+- La presentación de datos en consola utiliza códigos de colores ANSI definidos en la clase `Colors`.
 
 ---
 
 ## ✅ Estado del Proyecto
 
-Todos los ejercicios están probados y funcionan correctamente desde la consola, respetando las restricciones de entrada y salida indicadas en la consigna.
+El programa se encuentra completamente funcional:
+
+- Permite cargar productos correctamente.
+- Muestra el inventario en forma legible.
+- Valida correctamente la entrada del usuario.
+- Guarda los datos persistentes en archivo plano (`Inventario.dat`).
+- Permite editar y eliminar productos del archivo.
+- Ofrece una experiencia prolija y visualmente clara desde la consola.
