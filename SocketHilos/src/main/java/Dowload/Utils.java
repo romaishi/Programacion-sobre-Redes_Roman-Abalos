@@ -1,13 +1,34 @@
 package Dowload;
 
+import java.io.PrintStream;
+import java.util.HashMap;
+
 public class Utils {
-    public static final String ANSI_BLACK = "\u001B[30m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_PURPLE = "\u001B[35m";
-    public static final String ANSI_MAGENTA = "\u0033[35m";
-    public static final String ANSI_CYAN = "\u001B[36m";
-    public static final String ANSI_RESET = "\u001B[0m";	
+	
+	public static final String RESET = "\u001B[0m";
+	public static final String[] COLORES = {
+            "\u001B[31m", // rojo juego
+            "\u001B[32m", // verde video
+            "\u001B[33m", // amarillo musica
+            "\u001B[34m", // azul doc
+            "\u001B[35m", // magenta imagen
+            "\u001B[36m"  // cyan
+    };
+	
+	
+	private static PrintStream ps =  new PrintStream(System.out);
+	
+	public static Map<String,String> coloresHilos = new HashMap<>();
+
+	
+	public static Thread crearHilo(ThreadGroup grupo, Runnable r, String nombre, int prioridad, String color) {{
+		Thread t = new Thread();
+		t.setPriority(prioridad);
+		t.setName(nombre);
+		coloresHilos.put(nombre, color);
+		return t;
+	}
+		
+	}
+	
 }
