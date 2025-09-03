@@ -2,6 +2,7 @@ package Dowload;
 
 import java.io.PrintStream;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Utils {
 	
@@ -21,8 +22,8 @@ public class Utils {
 	public static Map<String,String> coloresHilos = new HashMap<>();
 
 	
-	public static Thread crearHilo(ThreadGroup grupo, Runnable r, String nombre, int prioridad, String color) {{
-		Thread t = new Thread();
+	public static Thread crearHilo(ThreadGroup grupo, Runnable tarea, String nombre, int prioridad, String color) {{
+		Thread t = new Thread(grupo, tarea);
 		t.setPriority(prioridad);
 		t.setName(nombre);
 		coloresHilos.put(nombre, color);
