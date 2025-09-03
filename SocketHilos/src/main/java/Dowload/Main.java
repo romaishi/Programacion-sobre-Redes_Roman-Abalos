@@ -75,6 +75,10 @@ public class Main {
 		//Otras tareas que puede ejecutar el MAIN
 		
 		
+		//Administrador de Hilos
+		MonitorThread monitor = new MonitorThread(grupo, listaHilos, Utils.coloresHilos);
+		
+		
 		//Esperar que todas las tareas finalizcen para concluir el programa MAIN
 		for(Thread hilo : listaHilos) 
 		{
