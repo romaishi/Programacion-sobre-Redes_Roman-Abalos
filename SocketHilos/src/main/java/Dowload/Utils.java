@@ -4,6 +4,11 @@ import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import javax.xml.bind.DatatypeConverter;
+
 public class Utils {
 	
 	public static final String RESET = "\u001B[0m";
@@ -32,4 +37,17 @@ public class Utils {
 		
 	}
 	
+	public static String decriptar(String clave, byte[] iv, String encriptado) {
+        try {
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+            SecretKeySpec sks = new SecretKeySpec(clave.getBytes("UTF-8"), "AES");
+            cipher.init(Cipher.DECRYPT_MODE, sks, new IvParameterSpec(iv));
+
+            byte[] dec = cipher.doFinal(DatatypeConverter.parseBase64Binary(encriptado));
+            return new String(dec);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
 }

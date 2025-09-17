@@ -7,6 +7,7 @@ import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 import Dowload.Utils;
 
@@ -46,6 +47,21 @@ class cli implements Runnable {
 		this.hilo = new Thread(this, nick);
 	}
 
+	public void notificarClientes(boolean b) {
+		for(cli c: Servidor.clientesConectados) {
+			if(c.isConected && !c.nick.equals(this.nick)) {
+				try {
+					if(b) {
+						c.dos.writeUTF(Utils.COLORES[6] + "\t---" + this.nick + "se ha unido al chat---" + Utils.RESET);
+					}else {
+						c.dos.writeUTF(Utils.COLORES[0] + "\t---" + this.nick + "se ha desconectado del chat---" + Utils.RESET);
+					}
+				}catch(IOException e){
+					e.printStackTrace();
+				}
+			}
+		}
+	}
 	public void run() {
 		String msg = "";
 		String msgRecibido = "";
@@ -54,10 +70,47 @@ class cli implements Runnable {
 		while (sock.isConnected() && this.isConected) {
 			try {
 				msgRecibido = dis.readUTF();
+				
+				if( msgRecibido.contains(":"))// cli : msj
+				{
+					StringTokenizer token = new StringTokenizer(msgRecibido, ":");
+					cli = token.nextToken().trim();
+					msg = token.nextToken().trim();
+				}else {
+					msg = msgRecibido.trim();
+					cli = "Todos";
+				}
 
 				ps.println("\n" + Utils.COLORES[1] + "El cliente " + this.nick + " envia:" + msgRecibido + "\n\t"
-						+ " al cliente =>" + Utils.COLORES[2] + (cli.equals("") ? " Todos" : cli.toUpperCase()) + "\n"
+						+ " al cliente =>" + Utils.COLORES[2] + (cli.equals("Todos") ? " Todos" : cli.toUpperCase()) + "\n"
 						+ Utils.RESET);
+				
+				if(msgRecibido.startsWith("/")){
+					switch(msgRecibido.substring(1, msgRecibido.length()).trim()){
+					case "salir":
+						this.dis.close();
+						this.dos.close();
+						this.isConected = false;
+						this.sock.close();
+						Servidor.clientesConectados.remove(this);
+						ps.println(Utils.COLORES[4] + "\tCliente" + this.nick + "se ha descconectado. \n" + Utils.RESET);
+						this.notificarClientes(false);
+						break;
+					}
+				}
+				
+				for( cli c : Servidor.clientesConectados) {
+					if(msg.equals("") || cli.equals("")) break;
+				
+					if(cli.toLowerCase().equals(c.nick) && this.isConected) {
+						c.dos.writeUTF(this.nick + ":" + msg);
+						break;
+					}else if(cli.equals("todos") && this.isConected && !c.nick.toLowerCase().equals(this.nick)) {
+						c.dos.writeUTF(this.nick + ":" + msg);						
+					}
+				}
+				
+				
 
 			} catch (IOException e) {
 				e.printStackTrace();
