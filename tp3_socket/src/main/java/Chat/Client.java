@@ -38,14 +38,16 @@ public class Client extends Connection {
                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             } catch (Exception e) { }
 
-            boolean seguir = true;
-            while (seguir) {
+            
+            
+            boolean con = true;
+            while (con) {
  
                 JFileChooser chooser = new JFileChooser();
-                chooser.setDialogTitle("Seleccioná el archivo a enviar");
+                chooser.setDialogTitle("Seleccioná el archivo que desea enviar");
                 int result = chooser.showOpenDialog(null);
                 if (result != JFileChooser.APPROVE_OPTION) {
-                    ps.println(Colors.ANSI_BLUE + "No se seleccionó archivo. Terminando envío." + Colors.ANSI_RESET);
+                    ps.println(Colors.ANSI_BLUE + "No se seleccionó nignún archivo. Finalizando envío." + Colors.ANSI_RESET);
 
                     dosClient.writeBoolean(false);
                     dosClient.flush();
@@ -70,14 +72,14 @@ public class Client extends Connection {
                 dosClient.writeBoolean(true);
                 dosClient.flush();
 
-                String filename = file.getName();
-                long filesize = file.length();
+                String fileName = file.getName();
+                long fileSize = file.length();
 
-                ps.printf(Colors.ANSI_BLUE + "Enviando archivo: %s (%,d bytes)\n" + Colors.ANSI_RESET, filename, filesize);
+                ps.printf(Colors.ANSI_BLUE + "Enviando archivo: %s (%,d bytes)\n" + Colors.ANSI_RESET, fileName, fileSize);
 
 
-                dosClient.writeUTF(filename);
-                dosClient.writeLong(filesize);
+                dosClient.writeUTF(fileName);
+                dosClient.writeLong(fileSize);
 
                 try (FileInputStream fis = new FileInputStream(file);
                      BufferedInputStream bis = new BufferedInputStream(fis)) {
@@ -91,7 +93,7 @@ public class Client extends Connection {
                     }
                     dosClient.flush();
                 } catch (IOException ex) {
-                    ps.println(Colors.ANSI_RED + "Error al leer/enviar el archivo: " + ex.getMessage() + Colors.ANSI_RESET);
+                    ps.println(Colors.ANSI_RED + "Error al leer / enviar el archivo: " + ex.getMessage() + Colors.ANSI_RESET);
  
                     try {
                         dosClient.writeUTF("ERROR");
@@ -109,12 +111,12 @@ public class Client extends Connection {
                 }
 
 
-                int resp = JOptionPane.showConfirmDialog(null, "¿Desea enviar otro archivo?", "Enviar otro?", JOptionPane.YES_NO_OPTION);
-                if (resp != JOptionPane.YES_OPTION) {
+                int ans = JOptionPane.showConfirmDialog(null, "¿Desea enviar otro archivo?", "Enviar otro?", JOptionPane.YES_NO_OPTION);
+                if (ans != JOptionPane.YES_OPTION) {
    
                     dosClient.writeBoolean(false);
                     dosClient.flush();
-                    seguir = false;
+                    con = false;
 
             }
 

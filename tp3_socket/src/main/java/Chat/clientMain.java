@@ -11,13 +11,14 @@ public class clientMain {
         int port = 5000;
 
         try {
-            Client cliente = new Client(Utils.enumType.CLIENT, ip, port);
-            cliente.setIp(ip);
-            cliente.setPort(port);
-
-            cliente.clientOn();
+            Client client = new Client(Utils.enumType.CLIENT, ip, port);
+            client.setIp(ip);
+            client.setPort(port);
+            client.clientOn();
+            
         } catch (UnknownHostException ex) {
             Logger.getLogger(clientMain.class.getName()).log(Level.SEVERE, null, ex);
+            
         } catch (IOException ex) {
             Logger.getLogger(clientMain.class.getName()).log(Level.SEVERE, null, ex);
         }

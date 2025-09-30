@@ -50,7 +50,7 @@ public class Server extends Connection implements AutoCloseable {
                     break;
                 }
                 if (!hasMore) {
-                    ps.println(Colors.ANSI_BLUE + "Cliente indica que no hay más archivos. Cerrando conexión." + Colors.ANSI_RESET);
+                    ps.println(Colors.ANSI_BLUE + "Cliente ha indicado que no hay más archivos. Cerrando conexión." + Colors.ANSI_RESET);
                     break;
                 }
 
@@ -96,7 +96,6 @@ public class Server extends Connection implements AutoCloseable {
                 }
 
                 ps.println(Colors.ANSI_GREEN + "Archivo recibido y guardado correctamente." + Colors.ANSI_RESET);
-
 
                 dosServer.writeUTF("OK");
                 dosServer.flush();
