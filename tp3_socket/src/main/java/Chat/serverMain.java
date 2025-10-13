@@ -13,8 +13,8 @@ public class serverMain {
         try ( Server server = new Server(Utils.enumType.SERVER, ip, port) ){
             server.setIp(ip);
             server.setPort(port);
-
             server.serverOn();
+            
         } catch (UnknownHostException ex) {
             Logger.getLogger(serverMain.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
