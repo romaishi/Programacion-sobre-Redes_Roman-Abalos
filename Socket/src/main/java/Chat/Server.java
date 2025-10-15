@@ -9,6 +9,8 @@ import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import Utils.Connection;
+
 public class Server  extends Connection implements AutoCloseable{
 
 	private DataInputStream disServer = null;

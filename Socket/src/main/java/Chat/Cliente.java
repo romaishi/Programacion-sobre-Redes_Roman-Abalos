@@ -15,6 +15,7 @@ import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import Utils.Connection;
 import Utils.enumType;
 
 public class Cliente extends Connection  {
